@@ -51,6 +51,11 @@ class ViewController: UITableViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     @objc func addCell() {
         self.content[0].insert(OneCell(l: "New task", d: 0), at: 0)
         self.tableView.reloadData()
@@ -63,16 +68,12 @@ class ViewController: UITableViewController {
         return content[section].count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "reusedCell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         let cont = content[indexPath.section][indexPath.row]
-        
         var img : UIImage?
         cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        
-        
         switch cont.detail {
         case 0:
             img = UIImage(named: "prio-0")
@@ -88,8 +89,6 @@ class ViewController: UITableViewController {
             print("Can not find priority")
         }
         cell!.imageView?.image = img!
-        
-        
         cell!.textLabel?.text = cont.label
         cell!.detailTextLabel?.text = "Priority " + String(cont.detail)
         cell!.backgroundView = UIImageView(image: UIImage(named: "bg-tableview-cell"))
@@ -117,7 +116,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //create the view controller to insert
         let s = self.content[indexPath.section][indexPath.row]
-        let detailVC = DetailViewController(str: s.label, img: s.img)
+        let detailVC = DetailViewController(oneCell: s)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     

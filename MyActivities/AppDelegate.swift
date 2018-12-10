@@ -66,6 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             svc.preferredDisplayMode = .primaryOverlay
             window?.rootViewController = svc
             */
+            let tvc = ViewController(style: .plain)
+            let nvc = UINavigationController(rootViewController: tvc)
+            window!.rootViewController = nvc
         }
         window?.makeKeyAndVisible()
         return true
