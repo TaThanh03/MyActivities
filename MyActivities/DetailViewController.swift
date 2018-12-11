@@ -36,6 +36,11 @@ class DetailViewController: UIViewController{
         label_title.text = "Title:"
         label_priority.text = "Priority:"
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(takePhoto))
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.navigationItem.rightBarButtonItem?.target = self
+            self.navigationItem.rightBarButtonItem?.action = #selector(takePhoto)
+        }
     }
     
     override func viewDidLoad() {
@@ -52,12 +57,9 @@ class DetailViewController: UIViewController{
         self.view.addSubview(label_priority)
         self.view.addSubview(text_title)
         self.view.addSubview(seg_priority)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(takePhoto))
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            NSLog( "Camera OK!")
-            self.navigationItem.rightBarButtonItem?.target = self
-            self.navigationItem.rightBarButtonItem?.action = #selector(takePhoto)
-        }
+        
+        
+        
         self.displayInSize(UIScreen.main.bounds.size)
     }
     
@@ -77,6 +79,7 @@ class DetailViewController: UIViewController{
             i.frame = CGRect(x: 10, y: top + 150, width: Int(s.width - 20), height: Int(s.height) - top - 200)
         }
     }
+    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

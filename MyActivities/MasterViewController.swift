@@ -1,19 +1,28 @@
 //
-//  ViewController.swift
+//  MasterViewController.swift
 //  MyActivities
 //
-//  Created by TA Trung Thanh on 09/12/2018.
+//  Created by TA Trung Thanh on 10/12/2018.
 //  Copyright © 2018 TA Trung Thanh. All rights reserved.
 //
-
 import UIKit
 
-class ViewController: UITableViewController {
+class MasterViewController: UITableViewController, UISplitViewControllerDelegate {
+    //var fullWatch = false
     private var content = [[OneCell]]()
     
-    override init(style: UITableView.Style) {
+    var splitVC : UISplitViewController?
+    var myDevice = SomeTypes.DeviceType.undefined
+    var detailVC : DetailViewController?
+    
+    init(_ devType : SomeTypes.DeviceType, detail: DetailViewController, split: UISplitViewController, style: UITableView.Style) {
+        //super.init(nibName: nil, bundle: nil)
         super.init(style: style)
         self.tableView.separatorColor = .clear
+        splitVC = split
+        detailVC = detail
+        myDevice = devType
+        
         var inSection = [OneCell]()
         inSection += [OneCell(l: "Look for vacation", d: 4)]
         content += [inSection]
@@ -59,6 +68,7 @@ class ViewController: UITableViewController {
         self.content[0].insert(OneCell(l: "New task", d: 0), at: 0)
         self.tableView.reloadData()
     }
+    
     // TableViewDataSource protocol
     override func numberOfSections(in tableView: UITableView) -> Int {
         return content.count
@@ -115,9 +125,13 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //create the view controller to insert
         let s = self.content[indexPath.section][indexPath.row]
-        let detailVC = DetailViewController(oneCell: s)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        detailVC = DetailViewController(oneCell: s)
+        
+        
+        //splitVC!.showDetailViewController(detailVC!.navigationController!, sender: self)
+        splitVC?.showDetailViewController(detailVC!, sender: self)
     }
+    
     
     //UITableViewDelegate protocol
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -162,4 +176,5 @@ class ViewController: UITableViewController {
     }
     
 }
+
 

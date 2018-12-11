@@ -45,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let myDevice = self.identifyDevice()
-        
-        
         switch myDevice {
         case .iphone35, .iphone40, .iphone47, .iphone55, .iphone58, .iphone6x:
             print("detected iPhone")
@@ -55,20 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = nvc
         default: //ipad
             print("detected iPad")
-            /*
             let svc = UISplitViewController()
             let dvc = DetailViewController()
-            let mvc = MasterViewController(myDevice, detail: dvc, split: svc)
+            let mvc = MasterViewController(myDevice, detail: dvc, split: svc, style: .plain)
             let mnvc = UINavigationController(rootViewController: mvc)
             let dnvc = UINavigationController(rootViewController: dvc)
             svc.viewControllers = [mnvc, dnvc]
             svc.delegate = mvc
-            svc.preferredDisplayMode = .primaryOverlay
+            //svc.preferredDisplayMode = .primaryOverlay
+            svc.preferredDisplayMode = .allVisible
             window?.rootViewController = svc
-            */
-            let tvc = ViewController(style: .plain)
-            let nvc = UINavigationController(rootViewController: tvc)
-            window!.rootViewController = nvc
+ 
         }
         window?.makeKeyAndVisible()
         return true

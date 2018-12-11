@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139076A321BE878C00ADF462 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139076A221BE878C00ADF462 /* MasterViewController.swift */; };
 		13AFD14B21BD3EA700B110C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFD14A21BD3EA700B110C3 /* AppDelegate.swift */; };
 		13AFD14D21BD3EA700B110C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFD14C21BD3EA700B110C3 /* ViewController.swift */; };
 		13AFD15021BD3EA700B110C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AFD14E21BD3EA700B110C3 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		139076A221BE878C00ADF462 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		13AFD14721BD3EA700B110C3 /* MyActivities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyActivities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13AFD14A21BD3EA700B110C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13AFD14C21BD3EA700B110C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 			children = (
 				13AFD14A21BD3EA700B110C3 /* AppDelegate.swift */,
 				13AFD14C21BD3EA700B110C3 /* ViewController.swift */,
+				139076A221BE878C00ADF462 /* MasterViewController.swift */,
+				13AFD17E21BD54C600B110C3 /* DetailViewController.swift */,
 				13AFD14E21BD3EA700B110C3 /* Main.storyboard */,
 				13AFD15121BD3EA800B110C3 /* Assets.xcassets */,
 				13AFD15321BD3EA800B110C3 /* LaunchScreen.storyboard */,
@@ -114,7 +118,6 @@
 				13AFD17821BD40A000B110C3 /* Contents.json */,
 				13AFD17A21BD45C400B110C3 /* SomeTypes.swift */,
 				13AFD17C21BD482600B110C3 /* OneCell.swift */,
-				13AFD17E21BD54C600B110C3 /* DetailViewController.swift */,
 			);
 			path = MyActivities;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				13AFD14D21BD3EA700B110C3 /* ViewController.swift in Sources */,
 				13AFD14B21BD3EA700B110C3 /* AppDelegate.swift in Sources */,
+				139076A321BE878C00ADF462 /* MasterViewController.swift in Sources */,
 				13AFD17F21BD54C600B110C3 /* DetailViewController.swift in Sources */,
 				13AFD17D21BD482600B110C3 /* OneCell.swift in Sources */,
 				13AFD17B21BD45C400B110C3 /* SomeTypes.swift in Sources */,
